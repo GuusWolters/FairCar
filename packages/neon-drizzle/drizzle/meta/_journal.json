@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1743155652605,
+      "tag": "0000_black_saracen",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1743156508668,
+      "tag": "0001_flimsy_xavin",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1743774929108,
+      "tag": "0002_freezing_madrox",
+      "breakpoints": true
+    }
+  ]
+}

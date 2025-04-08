@@ -1,0 +1,27 @@
+{
+  "name": "@repo/backend",
+  "scripts": {
+    "dev": "wrangler dev --env development",
+    "deploy": "wrangler deploy --minify --env production",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@elithrar/workers-hono-rate-limit": "^0.4.3",
+    "@repo/business": "workspace:*",
+    "@repo/neon-drizzle": "workspace:*",
+    "@repo/shared": "workspace:*",
+    "add": "^2.0.6",
+    "cron": "^4.1.3",
+    "hono": "^4.7.5",
+    "jstack": "^1.0.8",
+    "superjson": "^2.2.2",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.8.7",
+    "@cloudflare/workers-types": "^4.20250214.0",
+    "@repo/config": "workspace:*",
+    "vitest": "~3.0.0",
+    "wrangler": "^4.4.0"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "@repo/mock-db",
+  "dependencies": {
+    "@repo/shared": "workspace:*",
+    "@repo/business": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.2",
+    "@repo/config": "workspace:*"
+  },
+  "exports": {
+    "./repositories/*": "./src/repositories/*.ts",
+    "./index": "./src/index.ts"
+  }
+}
