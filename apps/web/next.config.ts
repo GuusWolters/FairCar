@@ -20,6 +20,7 @@ const nextConfig: NextConfig = {
             key: "Content-Security-Policy",
             value: `
               default-src 'self';
+              connect-src 'self' https://fair-car.vercel.app https://backend-production.guus-w.workers.dev;
               script-src 'self' 'nonce-${Buffer.from(crypto.randomUUID()).toString("base64")}' 'strict-dynamic';
               style-src 'self' 'nonce-${Buffer.from(crypto.randomUUID()).toString("base64")}';
               img-src 'self' blob: data:;
