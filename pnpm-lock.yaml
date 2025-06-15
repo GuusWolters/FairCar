@@ -157,9 +157,6 @@ importers:
 
   packages/business:
     dependencies:
-      '@repo/mock-db':
-        specifier: workspace:*
-        version: link:../mock-db
       '@repo/shared':
         specifier: workspace:*
         version: link:../shared
