@@ -8,6 +8,8 @@ export const listingRouter = j.router({
     try {
       const recommendedListings =
         await ctx.listingService.getRecommendedListings();
+
+      console.log("Listings:", recommendedListings);
       return c.superjson(recommendedListings);
     } catch (error) {
       console.error(error);

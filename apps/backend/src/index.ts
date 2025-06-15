@@ -4,6 +4,7 @@ import { listingRouter } from "./routers/listing/listing-router";
 import { bidRouter } from "./routers/bid/bid-router";
 import { csrf } from "hono/csrf";
 import { Context, Next } from "hono";
+import { logger } from "hono/logger";
 /**
  * This is your base API.
  * Here, you can handle errors, not-found responses, cors and more.
@@ -17,7 +18,7 @@ const api = j
     cors({
       allowHeaders: ["Content-Type", "x-is-superjson"],
       exposeHeaders: ["x-is-superjson"],
-      origin: ["http://localhost:3000"],
+      origin: ["http://localhost:3000", "https://fair-car.vercel.app"],
       credentials: true,
     })
   )

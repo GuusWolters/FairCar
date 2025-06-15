@@ -1,24 +1,6 @@
-import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
-import { apiClient } from "./lib/apiClient";
-import { runtime } from "./app/not-found";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function middleware(request: NextRequest) {
-  if (request.nextUrl.pathname.startsWith("/autos/")) {
-    const id = request.nextUrl.pathname.split("/").pop() || 0;
-
-    try {
-      await apiClient.listing.byId.$get({
-        id: parseInt(id as string),
-      });
-    } catch (error) {
-      if (error instanceof Error) {
-        if (error.message === "Listing not found") {
-          return NextResponse.rewrite(new URL("/404", request.url));
-        }
-      }
-    }
-  }
+export function middleware(request: NextRequest) {
   const nonce = Buffer.from(crypto.randomUUID()).toString("base64");
   const cspHeader = `
     default-src 'self';
@@ -57,8 +39,3 @@ export async function middleware(request: NextRequest) {
 
   return response;
 }
-
-// See "Matching Paths" below to learn more
-export const config = {
-  matcher: "/autos/:path*",
-};
