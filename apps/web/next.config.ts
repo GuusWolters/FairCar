@@ -11,6 +11,36 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: [
+          {
+            key: "Content-Security-Policy",
+            value: `
+              default-src 'self';
+              script-src 'self' 'nonce-${Buffer.from(crypto.randomUUID()).toString("base64")}' 'strict-dynamic';
+              style-src 'self' 'nonce-${Buffer.from(crypto.randomUUID()).toString("base64")}';
+              img-src 'self' blob: data:;
+              font-src 'self';
+              object-src 'none';
+              base-uri 'self';
+              form-action 'self';
+              frame-ancestors 'none';
+              upgrade-insecure-requests;
+            `
+              .replace(/\s{2,}/g, " ")
+              .trim(),
+          },
+          {
+            key: "X-Content-Type-Options",
+            value: "nosniff",
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;
